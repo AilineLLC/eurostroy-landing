@@ -1,35 +1,41 @@
 import Header from './layout/Header'
-import Hero from "@/app/components/sections/Hero";
-import About from "@/app/components/sections/About";
-import Activity from "@/app/components/sections/Activity";
-import Advantages from "@/app/components/sections/Advantages";
-import MapSection from '@/app/components/sections/MapSection'
+import { HomeHeroCarousel } from "@/app/components/sections/HomeHeroCarousel";
+import { AboutCompanySection } from "@/app/components/sections/AboutCompanySection";
+import { ActivityDirectionsSection } from "@/app/components/sections/ActivityDirectionsSection";
+import { HomeAdvantagesSection } from "@/app/components/sections/HomeAdvantagesSection";
+import { GeographyPartnersSection } from "@/app/components/sections/GeographyPartnersSection";
+import { PartnersCarouselSection } from "@/app/components/sections/PartnersCarouselSection";
+import { BrandsMarqueeSection } from "@/app/components/sections/BrandsMarqueeSection";
 import InfoSection from "@/app/components/sections/InfoSection";
-import StoreSection from "@/app/components/sections/StoreSection";
-import Choice from "@/app/components/sections/Choice";
-import ReviewsSection from "@/app/components/sections/ReviewsSection";
-import Footer from "@/app/layout/Footer";
+import { OnlineStoreSection } from "@/app/components/sections/OnlineStoreSection";
+import { BestChooseUsSection } from "@/app/components/sections/BestChooseUsSection";
+import { ReviewsSection } from "@/app/components/sections/ReviewsSection";
+import { HomeFooter } from "@/app/layout/HomeFooter";
 import Services from "@/app/components/sections/Services";
-import Achievements from "@/app/components/sections/Achievements";
-import GetInTouch from "@/app/components/sections/GetInTouch";
+import { AchievementsSection } from "@/app/components/sections/AchievementsSection";
+import { ProjectSection } from "@/app/components/sections/ProjectSection";
 
 export default function Home() {
   return (
     <div className="">
           <Header/>
-        <Hero/>
-        <About/>
-        <Activity/>
-        <Advantages/>
-        <MapSection/>
-        <InfoSection/>
-        <StoreSection/>
-        <Choice/>
+        <section className='container'>
+          <HomeHeroCarousel />
+        </section>
+        <AboutCompanySection/>
+        <ActivityDirectionsSection/>
+        <HomeAdvantagesSection/>
+        <GeographyPartnersSection/>
+        <BrandsMarqueeSection/>
+        <PartnersCarouselSection/>
+        {/* <InfoSection/> */}
+        <OnlineStoreSection/>
+        <BestChooseUsSection/>
         <ReviewsSection/>
         <Services/>
-        <Achievements/>
-        <GetInTouch/>
-        <Footer/>
+        <AchievementsSection/>
+        <ProjectSection/>
+        <HomeFooter/>
     </div>
   );
 }
