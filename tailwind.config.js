@@ -7,6 +7,15 @@ module.exports = {
     theme: {
         extend: {
             colors: {},
+            keyframes: {
+                'marquee-scroll': {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(calc(-100% / 3))' },
+                },
+            },
+            animation: {
+                'marquee-scroll': 'marquee-scroll 30s linear infinite',
+            },
         },
     },
     plugins: [],

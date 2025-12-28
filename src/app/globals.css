@@ -126,3 +126,47 @@
   max-width: 1590px;
   margin: 0 auto;
 }
+
+@layer utilities {
+  .text-brand-accent {
+    color: #015bff;
+  }
+  .text-brand-grey {
+    color: #a7a7a7;
+  }
+
+  .bg-brand-accent {
+    background-color: #015bff;
+  }
+
+  .bg-brand-secondary {
+    background-color: #e6efff;
+  }
+
+  .border-brand-accent {
+    border-color: #015bff;
+  }
+
+  /* Marquee анимация - пауза при hover и поддержка prefers-reduced-motion */
+  .group:hover .marquee-inner,
+  .group:focus-within .marquee-inner {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-inner {
+      animation: none;
+      transform: none;
+    }
+  }
+}
+
+/* Keyframes для marquee анимации */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / 3));
+  }
+}
