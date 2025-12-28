@@ -22,6 +22,12 @@ export const BrandsMarqueeSection = () => {
           className="relative w-full overflow-hidden flex items-center group"
           aria-label="Логотипы партнёров"
         >
+          {/* Левая градиентная маска */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none bg-gradient-to-r from-white to-transparent" />
+          
+          {/* Правая градиентная маска */}
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none bg-gradient-to-l from-white to-transparent" />
+          
           <div
             className="flex-shrink-0 flex items-center min-w-max will-change-transform marquee-inner"
             style={{
@@ -40,7 +46,7 @@ export const BrandsMarqueeSection = () => {
                     alt={logo.alt}
                     width={220}
                     height={56}
-                    className="h-11 md:h-[52px] w-auto object-contain"
+                    className="h-[60px] w-auto object-contain"
                     sizes="220px"
                   />
                 </div>
@@ -59,7 +65,7 @@ export const BrandsMarqueeSection = () => {
                     alt=""
                     width={220}
                     height={56}
-                    className="h-11 md:h-[52px] w-auto object-contain"
+                    className="h-[60px] w-auto object-contain"
                     sizes="220px"
                   />
                 </div>
@@ -78,7 +84,7 @@ export const BrandsMarqueeSection = () => {
                     alt=""
                     width={220}
                     height={56}
-                    className="h-11 md:h-[52px] w-auto object-contain"
+                    className="h-[60px] w-auto object-contain"
                     sizes="220px"
                   />
                 </div>
