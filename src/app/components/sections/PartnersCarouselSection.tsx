@@ -13,51 +13,15 @@ import {
   CarouselPrevious,
 } from '@/app/components/ui/carousel';
 import { cn } from '@/app/lib/utils';
+import { partnersData } from '@/app/lib/constants/partners';
 
-type PartnerCard = {
-  id: string;
-  title: string;
-  description: string;
-  href: string;
-};
-
-const partners: PartnerCard[] = [
-  {
-    id: 'arbiton-1',
-    title: 'Партнёр Arbiton',
-    description:
-      'Современные решения для полов, подложек и отделки. Стильно, надёжно, удобно.',
-    href: '/contacts',
-  },
-  {
-    id: 'arbiton-2',
-    title: 'Партнёр Arbiton',
-    description:
-      'Современные решения для полов, подложек и отделки. Стильно, надёжно, удобно.',
-    href: '/contacts',
-  },
-  {
-    id: 'arbiton-3',
-    title: 'Партнёр Arbiton',
-    description:
-      'Современные решения для полов, подложек и отделки. Стильно, надёжно, удобно.',
-    href: '/contacts',
-  },
-  {
-    id: 'arbiton-4',
-    title: 'Партнёр Arbiton',
-    description:
-      'Современные решения для полов, подложек и отделки. Стильно, надёжно, удобно.',
-    href: '/contacts',
-  },
-  {
-    id: 'arbiton-5',
-    title: 'Партнёр Arbiton',
-    description:
-      'Современные решения для полов, подложек и отделки. Стильно, надёжно, удобно.',
-    href: '/contacts',
-  },
-];
+// Преобразуем данные партнеров в массив для карусели
+const partners = Object.values(partnersData).map((partner) => ({
+  id: partner.id,
+  title: partner.title,
+  description: partner.description,
+  href: `/partners/${partner.id}`,
+}));
 
 const getLoopDistance = (index: number, current: number, count: number) => {
   const diff = Math.abs(index - current);
