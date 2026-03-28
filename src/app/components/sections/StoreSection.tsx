@@ -8,6 +8,7 @@ import Filters from '@/app/assets/icons/filters.svg'
 import Tick from '@/app/assets/icons/tick.svg'
 import Delivery from '@/app/assets/icons/delivery.svg'
 import {Badge} from "@/app/components/ui/badge";
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 function StoreSection() {
     return (
@@ -65,7 +66,7 @@ function StoreSection() {
 
 
 
-                    <a href="https://online-store-murex-ten.vercel.app/">
+                    <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
                     <Button className="mt-5 flex items-center justify-between gap-2 pr-[5px] pl-[30px] rounded-full h-[60px] text-base w-[270px]">
                         Посмотреть каталог
                         <span className="flex items-center justify-center w-[50px] h-[50px] bg-white rounded-full">

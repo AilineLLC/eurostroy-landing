@@ -47,8 +47,13 @@ export const ArrowButton = ({
   );
 
   if (href) {
+    const isExternal = href.startsWith('http');
     return (
-      <Link href={href} className={baseClasses}>
+      <Link
+        href={href}
+        className={baseClasses}
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {content}
       </Link>
     );

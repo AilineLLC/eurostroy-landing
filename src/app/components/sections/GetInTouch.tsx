@@ -1,7 +1,7 @@
 'use client'
 
 import {Button} from "@/app/components/ui/button";
-import Link from "next/link";
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 function GetInTouch() {
     return (
@@ -22,7 +22,7 @@ function GetInTouch() {
                         className="bg-white text-black hover:bg-gray-100 h-[65px] px-[30px] py-[20px] w-[223px] text-xl text-[#015BFF]"
                         asChild
                     >
-                        <a href="https://online-store-murex-ten.vercel.app/">
+                        <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
                             Перейти в магазин
                         </a>
                     </Button>
