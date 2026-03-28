@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/app/components/ui/button';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 type ButtonConfig = {
   text: string;
@@ -35,7 +36,7 @@ const defaultProps: Required<Omit<ProjectSectionProps, 'className' | 'fullWidth'
     },
     {
       text: 'Перейти в магазин',
-      href: '/categories',
+      href: SHOP_URL,
       variant: 'outline',
       className:
         'bg-white text-[#015BFF] border-[#015BFF] hover:text-[#015BFF] rounded-lg px-6 py-8 text-base md:text-xl',
@@ -107,16 +108,26 @@ export const ProjectSection = (props: ProjectSectionProps) => {
             )}
             {buttons && buttons.length > 0 && (
               <div className='flex flex-col sm:flex-row gap-7'>
-                {buttons.map((button, index) => (
-                  <Button
-                    key={index}
-                    asChild
-                    variant={button.variant || 'default'}
-                    className={button.className}
-                  >
-                    <Link href={button.href}>{button.text}</Link>
-                  </Button>
-                ))}
+                {buttons.map((button, index) => {
+                  const isExternal = button.href.startsWith('http');
+                  return (
+                    <Button
+                      key={index}
+                      asChild
+                      variant={button.variant || 'default'}
+                      className={button.className}
+                    >
+                      <Link
+                        href={button.href}
+                        {...(isExternal
+                          ? { target: '_blank', rel: 'noopener noreferrer' }
+                          : {})}
+                      >
+                        {button.text}
+                      </Link>
+                    </Button>
+                  );
+                })}
               </div>
             )}
           </div>

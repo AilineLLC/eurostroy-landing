@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { ArrowButton } from '@/app/components/ui/arrow-button';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 export const OnlineStoreSection = () => {
   const features = [
@@ -70,7 +71,7 @@ export const OnlineStoreSection = () => {
 
             {/* Кнопка "Перейти в магазин" */}
             <div className='mt-8 md:mt-16'>
-              <ArrowButton href='/categories'>
+              <ArrowButton href={SHOP_URL}>
                 Перейти в магазин
               </ArrowButton>
             </div>

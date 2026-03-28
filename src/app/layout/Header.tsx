@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Button } from '@/app/components/ui/button';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 function Header() {
   return (
@@ -112,7 +113,13 @@ function Header() {
                 className='rounded-lg bg-[#015BFF] text-white hover:bg-[#0146CC] px-[30px] py-[14px] h-auto text-base whitespace-nowrap'
                 asChild
               >
-                <Link href='/categories'>Посмотреть каталог</Link>
+                <Link
+                  href={SHOP_URL}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  Посмотреть каталог
+                </Link>
               </Button>
             </div>
           </div>
