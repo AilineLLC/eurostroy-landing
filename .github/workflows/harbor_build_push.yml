@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "${{ secrets.HARBOR_PASSWORD }}" | docker login \
             ${{ secrets.HARBOR_REGISTRY }} \
-            -u "$'{{ secrets.HARBOR_USERNAME }}'" \
+            -u '${{ secrets.HARBOR_USERNAME }}' \
             --password-stdin
 
       - name: Build image
