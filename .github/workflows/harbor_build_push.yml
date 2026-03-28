@@ -25,11 +25,11 @@ jobs:
       - name: Build image
         run: |
           docker build \
-            -t ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips-landing:latest \
-            -t ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips-landing:${{ github.sha }} \
+            -t ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips_landing:latest \
+            -t ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips_landing:${{ github.sha }} \
             .
 
       - name: Push image
         run: |
-          docker push ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips-landing:latest
-          docker push ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips-landing:${{ github.sha }}
+          docker push ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips_landing:latest
+          docker push ${{ secrets.HARBOR_REGISTRY }}/${{ secrets.HARBOR_PROJECT }}/eurogips_landing:${{ github.sha }}
