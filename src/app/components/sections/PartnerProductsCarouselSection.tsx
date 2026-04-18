@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from '@/app/components/ui/carousel';
 import { SectionHeading } from '@/app/components/ui/section-heading';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 type ProductCard = {
   id: string;
@@ -31,28 +32,28 @@ const products: ProductCard[] = [
     title: 'Композитная черепица',
     countLabel: '150 товаров',
     imageSrc: '/main-page/product-1.png',
-    href: '/categories',
+    href: SHOP_URL,
   },
   {
     id: 'product-2',
     title: 'Гибкая черепица shinglas',
     countLabel: '230 товаров',
     imageSrc: '/main-page/product-2.png',
-    href: '/categories',
+    href: SHOP_URL,
   },
   {
     id: 'product-3',
     title: 'Композитная черепица',
     countLabel: '150 товаров',
     imageSrc: '/main-page/product-1.png',
-    href: '/categories',
+    href: SHOP_URL,
   },
   {
     id: 'product-4',
     title: 'Гибкая черепица shinglas',
     countLabel: '230 товаров',
     imageSrc: '/main-page/product-2.png',
-    href: '/categories',
+    href: SHOP_URL,
   },
 ];
 
@@ -100,6 +101,8 @@ export const PartnerProductsCarouselSection = ({
                   <div className='mt-auto'>
                     <Link
                       href={product.href}
+                      target='_blank'
+                      rel='noopener noreferrer'
                       className='inline-flex h-12 w-full items-center justify-center gap-3 rounded-full bg-[#E6EFFF] text-[#015BFF] text-base transition-colors hover:bg-[#DCE9FF]'
                     >
                       Посмотреть товар

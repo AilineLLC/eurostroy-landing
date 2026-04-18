@@ -1,6 +1,7 @@
 'use client'
 import {CustomCarousel} from "@/app/components/CustomCarousel";
 import {Button} from "@/app/components/ui/button";
+import { SHOP_URL } from '@/app/lib/constants/shop';
 import {ArrowRight} from "lucide-react";
 
 function Hero() {
@@ -43,11 +44,20 @@ function Hero() {
                             <h3 className='text-[42px] leading-[1.2] text-white drop-shadow-lg'>{slide.title}</h3>
                             <p className='text-lg mt-4 text-white/90 drop-shadow-md'>{slide.description}</p>
 
-                            <Button className="mt-5 flex items-center justify-between gap-2 pr-[5px] pl-[30px] rounded-full h-[60px] text-base w-[290px]">
+                            <Button
+                              asChild
+                              className="mt-5 flex items-center justify-between gap-2 pr-[5px] pl-[30px] rounded-full h-[60px] text-base w-[290px]"
+                            >
+                              <a
+                                href={SHOP_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
                                 Посмотреть каталог
                                 <span className="flex items-center justify-center w-[50px] h-[50px] bg-white rounded-full">
-                                <ArrowRight className="w-4 h-4 text-black" />
-                              </span>
+                                  <ArrowRight className="w-4 h-4 text-black" />
+                                </span>
+                              </a>
                             </Button>
                         </div>
                     </div>
