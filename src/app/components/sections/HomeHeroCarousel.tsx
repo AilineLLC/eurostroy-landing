@@ -10,6 +10,7 @@ import {
   CarouselItem,
 } from '@/app/components/ui/carousel';
 import { ArrowButton } from '@/app/components/ui/arrow-button';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 
 type Slide = {
   id: string;
@@ -30,7 +31,7 @@ export const HomeHeroCarousel = () => {
       title: 'Ваш надежный поставщик строительных материалов',
       description:
         'Мы знаем всё о строительных материалах и поставках. Работаем стабильно и точно, чтобы вы получали нужное — вовремя и без лишних хлопот. Подходим к каждому проекту с вниманием, независимо от его масштаба',
-      ctaHref: '/categories',
+      ctaHref: SHOP_URL,
       ctaLabel: 'Посмотреть каталог',
     },
     {
@@ -39,7 +40,7 @@ export const HomeHeroCarousel = () => {
       title: 'Ваш надежный поставщик строительных материалов',
       description:
         'Мы знаем всё о строительных материалах и поставках. Работаем стабильно и точно, чтобы вы получали нужное — вовремя и без лишних хлопот. Подходим к каждому проекту с вниманием, независимо от его масштаба',
-      ctaHref: '/categories',
+      ctaHref: SHOP_URL,
       ctaLabel: 'Посмотреть каталог',
     },
     {
@@ -48,7 +49,7 @@ export const HomeHeroCarousel = () => {
       title: 'Ваш надежный поставщик строительных материалов',
       description:
         'Мы знаем всё о строительных материалах и поставках. Работаем стабильно и точно, чтобы вы получали нужное — вовремя и без лишних хлопот. Подходим к каждому проекту с вниманием, независимо от его масштаба',
-      ctaHref: '/categories',
+      ctaHref: SHOP_URL,
       ctaLabel: 'Посмотреть каталог',
     },
   ];

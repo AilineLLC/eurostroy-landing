@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { partnersData } from '@/app/lib/constants/partners';
+import { SHOP_URL } from '@/app/lib/constants/shop';
 import Header from '@/app/layout/Header';
 import Footer from '@/app/layout/Footer';
 import { SectionHeading } from '@/app/components/ui/section-heading';
@@ -452,9 +454,15 @@ export default async function PartnerPage({ params }: PageProps) {
                 <div className='flex items-center w-full'>
                   <Button
                     className='h-12 px-10 rounded-[14px] w-full text-base font-medium'
-                    type='button'
+                    asChild
                   >
-                    Посмотреть продукцию
+                    <Link
+                      href={SHOP_URL}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      Посмотреть продукцию
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -474,7 +482,7 @@ export default async function PartnerPage({ params }: PageProps) {
             },
             {
               text: 'Посмотреть продукцию',
-              href: '/categories',
+              href: SHOP_URL,
               variant: 'outline',
               className:
                 'bg-white text-[#015BFF] border-[#015BFF] hover:text-[#015BFF] rounded-lg px-6 py-8 text-base md:text-xl',
