@@ -16,7 +16,7 @@ const advantages: AdvantageCard[] = [
     title: 'Качество по ГОСТ и международным стандартам',
     description:
       'Материалы соответствуют ГОСТ и международным требованиям безопасности и надёжности',
-    imageSrc: '/main-page/GOST.png',
+    imageSrc: '/main-page/GOST_2.png',
     imageAlt: 'ГОСТ и международные стандарты',
     bgColor: 'bg-[#015BFF]',
     textColor: 'text-white',
@@ -48,13 +48,13 @@ export const HomeAdvantagesSection = () => {
         Преимущества
       </SectionHeading>
 
-      <div className='mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6'>
+      <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
         {/* Левая карточка - синяя */}
         <div
-          className={`relative overflow-hidden rounded-[32px] ${advantages[0].bgColor} p-10 md:p-15 h-[550px] flex flex-col justify-between`}
+          className={`relative overflow-hidden rounded-[32px] ${advantages[0].bgColor} p-8 md:p-10 min-h-[350px] md:h-[550px] flex flex-col justify-between`}
         >
           <div className={`relative z-10 ${advantages[0].textColor} flex justify-center flex-col items-center`}>
-            <h3 className='text-xl md:text-2xl leading-tight mb-4 text-center'>
+            <h3 className='text-xl md:text-2xl leading-tight mb-4 text-center font-semibold'>
               {advantages[0].title}
             </h3>
             <p className='text-base leading-relaxed opacity-90 text-center max-w-[450px]'>
@@ -62,7 +62,7 @@ export const HomeAdvantagesSection = () => {
             </p>
           </div>
 
-          <div className='absolute right-1/2 -bottom-[50px] w-[735px] h-[492px] opacity-90 translate-x-1/2'>
+          <div className='absolute right-1/2 bottom-0 md:-bottom-[50px] w-[90%] md:w-[735px] h-[160px] md:h-[380px] lg:h-[492px] opacity-60 md:opacity-90 translate-x-1/2'>
             <Image
               src={advantages[0].imageSrc}
               alt={advantages[0].imageAlt}
@@ -75,21 +75,21 @@ export const HomeAdvantagesSection = () => {
         </div>
 
         {/* Правая колонка - две карточки */}
-        <div className='h-[550px] flex flex-col gap-6'>
+        <div className='md:h-[550px] flex flex-col gap-6'>
           {/* Верхняя карточка */}
           <div
-            className={`relative overflow-hidden rounded-[32px] ${advantages[1].bgColor} p-6 md:p-8 flex-1 flex flex-col justify-between`}
+            className={`relative overflow-hidden rounded-[32px] ${advantages[1].bgColor} p-6 md:p-8 min-h-[240px] flex-1 flex flex-col`}
           >
-            <div className={`relative z-10 ${advantages[1].textColor}`}>
-              <h3 className='text-xl md:text-2xl leading-tight mb-4 max-w-[500px]'>
+            <div className={`relative z-10 pr-[110px] md:pr-[140px] lg:pr-0 ${advantages[1].textColor}`}>
+              <h3 className='text-xl md:text-2xl leading-tight mb-3 font-semibold'>
                 {advantages[1].title}
               </h3>
-              <p className='text-base leading-relaxed max-w-[400px]'>
+              <p className='text-base leading-relaxed'>
                 {advantages[1].description}
               </p>
             </div>
 
-            <div className='absolute right-0 -bottom-[60px] w-[250px] h-[250px] md:w-[350px] md:h-[350px] opacity-90'>
+            <div className='absolute right-0 bottom-0 md:-bottom-[60px] w-[100px] h-[100px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] opacity-90'>
               <Image
                 src={advantages[1].imageSrc}
                 alt={advantages[1].imageAlt}
@@ -103,18 +103,18 @@ export const HomeAdvantagesSection = () => {
 
           {/* Нижняя карточка */}
           <div
-            className={`relative overflow-hidden rounded-[32px] ${advantages[2].bgColor} p-6 md:p-8 flex-1 flex flex-col justify-between`}
+            className={`relative overflow-hidden rounded-[32px] ${advantages[2].bgColor} p-6 md:p-8 min-h-[240px] flex-1 flex flex-col`}
           >
-            <div className={`relative z-10 ${advantages[2].textColor}`}>
-              <h3 className='text-xl md:text-2xl leading-tight mb-4 max-w-[500px]'>
+            <div className={`relative z-10 pr-[110px] md:pr-[140px] lg:pr-0 ${advantages[2].textColor}`}>
+              <h3 className='text-xl md:text-2xl leading-tight mb-3 font-semibold'>
                 {advantages[2].title}
               </h3>
-              <p className='text-base leading-relaxed max-w-[400px]'>
+              <p className='text-base leading-relaxed'>
                 {advantages[2].description}
               </p>
             </div>
 
-            <div className='absolute right-0 -bottom-[70px] w-[250px] h-[250px] md:w-[350px] md:h-[350px] opacity-90'>
+            <div className='absolute right-0 bottom-0 md:-bottom-[70px] w-[100px] h-[100px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[350px] opacity-90'>
               <Image
                 src={advantages[2].imageSrc}
                 alt={advantages[2].imageAlt}

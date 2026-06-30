@@ -20,9 +20,9 @@ const eurogipsElements = [
 export const HomeFooter = () => (
   <footer>
     <div className='relative z-20 h-[100px] bg-white'></div>
-    <div className='text-black pb-12 pt-20 px-4 md:px-8 bg-[#F8F8F8] font-medium'>
-      <div className='max-w-[1590px] mx-auto grid grid-cols-1 md:grid-cols-8 gap-8'>
-        <div className='space-y-2 col-span-3'>
+    <div className='text-black pb-12 pt-10 lg:pt-20 px-4 md:px-8 bg-[#F8F8F8] font-medium'>
+      <div className='max-w-[1590px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-8'>
+        <div className='space-y-2 md:col-span-1 lg:col-span-3'>
           <div>
             <Image
               className='m-0'
@@ -52,8 +52,8 @@ export const HomeFooter = () => (
           </div>
         </div>
 
-        <div className='col-span-2'>
-          <h2 className='text-xl mb-3'>Карта сайта</h2>
+        <div className='md:col-span-1 lg:col-span-2'>
+          <h2 className='text-xl mb-3 font-semibold'>Карта сайта</h2>
           <div className='grid grid-cols-2 gap-8'>
             <ul className='space-y-3 text-sm'>
               <li>
@@ -102,10 +102,10 @@ export const HomeFooter = () => (
           </div>
         </div>
 
-        <div className='col-span-3'>
-          <div className='flex flex-col gap-3 items-end space-y-1 mb-[60px]'>
-            <h3 className='text-xl m-0'>Подпишитесь на нашу рассылку</h3>
-            <div className='flex gap-2 relative min-w-[375px]'>
+        <div className='md:col-span-2 lg:col-span-3'>
+          <div className='flex flex-col gap-3 items-start lg:items-end space-y-1 mb-8 lg:mb-[60px]'>
+            <h3 className='text-xl m-0 font-semibold'>Подпишитесь на нашу рассылку</h3>
+            <div className='flex gap-2 relative w-full md:min-w-[375px]'>
               <Input
                 placeholder='Введите email'
                 className='flex-1 p-[20px] h-[60px] rounded-[16px] bg-white text-black placeholder:text-[#D9D9D9]'
@@ -118,7 +118,7 @@ export const HomeFooter = () => (
               </Button>
             </div>
           </div>
-          <div className='flex gap-[15px] mt-[30px] justify-end'>
+          <div className='flex gap-[15px] mt-[30px] justify-start lg:justify-end'>
             <Link
               target='_blank'
               rel='noopener noreferrer'

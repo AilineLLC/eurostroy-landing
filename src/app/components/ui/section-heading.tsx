@@ -3,11 +3,11 @@ import * as React from 'react';
 
 import { cn } from '@/app/lib/utils';
 
-const sectionHeadingVariants = cva('text-black leading-tight', {
+const sectionHeadingVariants = cva('text-black leading-tight font-semibold', {
   variants: {
     size: {
-      default: 'text-3xl',
-      large: 'text-[34px] md:text-[44px]',
+      default: 'text-2xl md:text-3xl',
+      large: 'text-[28px] md:text-[34px] lg:text-[44px]',
     },
     as: {
       h1: '',

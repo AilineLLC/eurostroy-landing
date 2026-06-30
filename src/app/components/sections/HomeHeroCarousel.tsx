@@ -97,7 +97,7 @@ export const HomeHeroCarousel = () => {
         <CarouselContent className='h-full'>
           {slides.map((slide, index) => (
             <CarouselItem key={slide.id} className='h-full'>
-              <div className='relative h-[820px] w-full overflow-hidden rounded-[28px]'>
+              <div className='relative h-[480px] sm:h-[600px] lg:h-[820px] w-full overflow-hidden rounded-[28px]'>
                 <Image
                   src={slide.imageSrc}
                   alt='Баннер'
@@ -110,14 +110,14 @@ export const HomeHeroCarousel = () => {
                 <div className='absolute inset-0 bg-gradient-to-r from-black/55 via-black/25 to-transparent' />
 
                 {/* Контент */}
-                <div className='absolute inset-0 px-6 py-10 md:px-12 md:py-14'>
+                <div className='absolute inset-0 px-5 py-8 md:px-12 md:py-14'>
                   <div className='flex h-full flex-col justify-center'>
-                    <div className='max-w-[620px]'>
-                      <h1 className='whitespace-pre-line text-white font-semibold leading-[1.05] text-[34px] lg:text-[42px]'>
+                    <div className='max-w-full sm:max-w-[620px]'>
+                      <h1 className='whitespace-pre-line text-white font-semibold leading-[1.1] text-[24px] sm:text-[32px] lg:text-[42px]'>
                         {slide.title}
                       </h1>
 
-                      <p className='mt-5 whitespace-pre-line text-white/85 text-[12px] md:text-[13px] leading-relaxed max-w-[520px]'>
+                      <p className='mt-4 whitespace-pre-line text-white/85 text-[14px] md:text-[15px] leading-relaxed max-w-[520px]'>
                         {slide.description}
                       </p>
 

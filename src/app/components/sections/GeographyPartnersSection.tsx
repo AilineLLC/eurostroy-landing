@@ -199,7 +199,7 @@ export const GeographyPartnersSection = () => {
         <SectionHeading as="h3">
           География и партнёры
         </SectionHeading>
-        <div className="mt-8 h-[600px] bg-gray-200 rounded-[32px] flex items-center justify-center">
+        <div className="mt-8 h-[280px] sm:h-[400px] lg:h-[600px] bg-gray-200 rounded-[32px] flex items-center justify-center">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4" />
             <p className="text-gray-600">Загрузка карты...</p>
@@ -215,7 +215,7 @@ export const GeographyPartnersSection = () => {
         География и партнёры
       </SectionHeading>
 
-      <div className="mt-8 h-[600px] md:h-[700px] relative">
+      <div className="mt-8 h-[280px] sm:h-[400px] md:h-[500px] lg:h-[700px] relative">
         <MapContainer
           center={mapCenter}
           zoom={mapZoom}

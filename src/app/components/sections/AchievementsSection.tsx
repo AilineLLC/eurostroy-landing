@@ -92,7 +92,7 @@ export const AchievementsSection = () => {
         Наши достижения
       </SectionHeading>
 
-      <div className='mt-8 grid grid-cols-1 xl:grid-cols-[375px_1fr_375px] gap-6 items-stretch'>
+      <div className='mt-8 grid grid-cols-1 xl:grid-cols-[minmax(0,375px)_1fr_minmax(0,375px)] gap-6 items-stretch'>
         {/* Левая колонка */}
         <div className='flex flex-col justify-between h-full'>
           <div className='space-y-6'>
@@ -156,14 +156,14 @@ export const AchievementsSection = () => {
                 size='icon'
                 iconClassName='!w-7 !h-7'
               />
-              <div className='w-[510px] flex-shrink-0 mx-4'>
-                <div className='rounded-[32px] bg-brand-secondary p-6 md:p-8'>
+              <div className='flex-1 min-w-0 mx-2 md:mx-4'>
+                <div className='rounded-[32px] bg-brand-secondary p-4 md:p-6 lg:p-8'>
                   <CarouselContent className='-ml-4'>
                     {slides.map((slide, index) => (
                       <CarouselItem key={slide.id} className='pl-4'>
                         <div className='relative mx-auto w-full'>
-                          <div className='rounded-[28px] bg-white p-4 md:p-5'>
-                            <div className='relative h-[520px] md:h-[610px] w-full overflow-hidden rounded-[22px]'>
+                          <div className='rounded-[28px] bg-white p-3 md:p-5'>
+                            <div className='relative h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] w-full overflow-hidden rounded-[22px]'>
                               <Image
                                 src={slide.imageSrc}
                                 alt={slide.imageAlt}

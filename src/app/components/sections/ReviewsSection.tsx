@@ -101,9 +101,9 @@ export const ReviewsSection = () => {
                 key={review.id}
                 className='pl-2 md:pl-4 basis-full md:basis-1/2'
               >
-                <div className='bg-[#F8F8F8] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm h-full flex flex-col md:flex-row p-[30px]'>
+                <div className='bg-[#F8F8F8] rounded-2xl md:rounded-3xl overflow-hidden shadow-sm h-full flex flex-col md:flex-row p-4 md:p-[30px]'>
                   {/* Изображение дома */}
-                  <div className='relative rounded-2xl md:rounded-3xl w-full md:w-[300px] lg:w-[350px] h-[250px] md:h-auto flex-shrink-0'>
+                  <div className='relative rounded-2xl md:rounded-3xl w-full md:w-[260px] lg:w-[300px] h-[180px] sm:h-[220px] md:h-auto flex-shrink-0'>
                     <Image
                       src={review.image}
                       alt={`Отзыв от ${review.author}`}

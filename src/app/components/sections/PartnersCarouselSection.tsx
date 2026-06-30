@@ -98,7 +98,7 @@ export const PartnersCarouselSection = () => {
                     className={cn(
                       'relative overflow-hidden rounded-[28px]',
                       'mx-auto',
-                      'w-[510px] h-[510px]',
+                      'w-[82vw] h-[82vw] sm:w-[420px] sm:h-[420px] md:w-[510px] md:h-[510px]',
                       'transform-gpu transition-all duration-300 ease-out',
                       'will-change-transform',
                       opacityClass,

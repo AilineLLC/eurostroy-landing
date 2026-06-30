@@ -13,15 +13,15 @@ interface CategoryCardProps {
 
 export function CardGrid({ title, imageUrl, href, size = 'small' }: CategoryCardProps) {
     const imageSizeClass = {
-        small: 'h-60 w-60',
-        medium: 'h-80 w-80  -bottom-10 right-2',
-        large: 'h-120 w-120',
+        small: 'h-40 w-40 lg:h-60 lg:w-60',
+        medium: 'h-48 w-48 lg:h-80 lg:w-80 -bottom-10 right-2',
+        large: 'h-64 w-64 lg:h-120 lg:w-120',
     }[size];
 
     const titleSizeClass = {
-        small: 'w-[175px]',
-        medium: 'w-[240px]',
-        large: 'w-[250px]',
+        small: 'w-[140px] lg:w-[175px]',
+        medium: 'w-[180px] lg:w-[240px]',
+        large: 'w-[200px] lg:w-[250px]',
     }[size]
 
     const imageSize = {
@@ -33,7 +33,7 @@ export function CardGrid({ title, imageUrl, href, size = 'small' }: CategoryCard
     return (
         <Link href={href} className="group block h-full w-full">
             <Card className="h-full w-full relative flex flex-col bg-[#E6EFFF] transition-all hover:shadow-lg overflow-hidden rounded-4xl border-none shadow-none">
-                <CardContent className="flex flex-col h-full p-4">
+                <CardContent className="flex flex-col h-full p-4 pb-2">
 
                     <div className="mt-auto flex justify-between items-end">
                         <div className={`absolute -bottom-10 -right-8 overflow-hidden ${imageSizeClass}`}>
@@ -45,7 +45,7 @@ export function CardGrid({ title, imageUrl, href, size = 'small' }: CategoryCard
                                 sizes={imageSize}
                             />
                         </div>
-                        <h3 className={`text-2xl font-bold z-10 ${titleSizeClass}`}>{title}</h3>
+                        <h3 className={`relative text-xl lg:text-2xl font-semibold z-10 ${titleSizeClass}`}>{title}</h3>
                     </div>
                 </CardContent>
             </Card>

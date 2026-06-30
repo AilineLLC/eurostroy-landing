@@ -28,8 +28,8 @@ function Services() {
     return (
         <section className='container !mt-8'>
             <div className='space-y-4'>
-            <h3 className='text-3xl'>Наши сервисы</h3>
-            <div className="grid grid-cols-4 auto-rows-[210px] auto-cols-[185px] gap-4">
+            <h3 className='text-2xl md:text-3xl font-semibold'>Наши сервисы</h3>
+            <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[210px] gap-4">
             {services.map((service) => {
                 const size = service.size ?? 'small';
                 const colSpan =

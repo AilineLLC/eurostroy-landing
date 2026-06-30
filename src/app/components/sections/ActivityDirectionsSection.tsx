@@ -116,7 +116,7 @@ export const ActivityDirectionsSection = () => {
                 key={d.id}
                 type='button'
                 onClick={() => setActiveId(d.id)}
-                className={`w-[510px] h-[70px] text-left rounded-[15px] border px-4 flex items-center gap-4 transition-colors ${cardClass}`}
+                className={`w-full min-h-[70px] text-left rounded-[15px] border px-4 py-3 flex items-center gap-4 transition-colors ${cardClass}`}
               >
                 <span
                   className={`shrink-0 h-[50px] w-[50px] rounded-[10px] border flex items-center justify-center ${iconWrapClass}`}
@@ -124,7 +124,7 @@ export const ActivityDirectionsSection = () => {
                 >
                   <MonitorIcon className='h-6 w-6' />
                 </span>
-                <span className='text-black text-[20px] leading-snug'>
+                <span className='text-black text-base xl:text-[20px] leading-snug'>
                   {d.title}
                 </span>
               </button>
@@ -133,9 +133,9 @@ export const ActivityDirectionsSection = () => {
         </div>
 
         {/* Right: content */}
-        <div className='rounded-[32px] bg-[#F8F8F8] p-4 md:p-6 xl:p-8 max-h-[527px]'>
+        <div className='rounded-[32px] bg-[#F8F8F8] p-4 md:p-6 xl:p-8'>
           <div className='flex flex-col lg:flex-row gap-6 lg:gap-10 items-stretch'>
-            <div className='relative overflow-hidden rounded-[22px] bg-white max-h-[467px] w-full lg:w-[510px] shrink-0'>
+            <div className='relative overflow-hidden rounded-[22px] bg-white h-[280px] md:h-[360px] lg:max-h-[467px] w-full lg:w-[510px] shrink-0'>
               <div className='absolute left-5 top-5 z-10 flex items-center gap-3'>
                 <span className='rounded-full bg-white px-4 py-2 text-[14px] leading-none'>
                   {active.badgeLeft}
@@ -157,7 +157,7 @@ export const ActivityDirectionsSection = () => {
 
             <div className='flex flex-col justify-between flex-1'>
               <div>
-                <h3 className='text-black text-xl leading-snug'>
+                <h3 className='text-black text-xl leading-snug font-semibold'>
                   {active.title}
                 </h3>
 

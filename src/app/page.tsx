@@ -18,7 +18,7 @@ import { ProjectSection } from "@/app/components/sections/ProjectSection";
 export default function Home() {
   return (
     <div className="">
-          <Header/>
+        <Header/>
         <section className='container'>
           <HomeHeroCarousel />
         </section>

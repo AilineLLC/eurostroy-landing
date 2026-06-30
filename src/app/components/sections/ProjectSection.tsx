@@ -65,8 +65,8 @@ export const ProjectSection = (props: ProjectSectionProps) => {
 
   return (
     <section
-      className={`relative mt-[150px] ${fullWidth ? 'w-screen left-1/2 -translate-x-1/2' : 'w-full'} ${className}`}
-      style={{ height: `${height}px` }}
+      className={`relative mt-16 md:mt-[150px] ${fullWidth ? 'w-screen left-1/2 -translate-x-1/2' : 'w-full'} ${className}`}
+      style={{ minHeight: `${height}px` }}
     >
       {/* Фон без контейнера */}
       <div className='absolute inset-0 z-0'>
@@ -79,9 +79,9 @@ export const ProjectSection = (props: ProjectSectionProps) => {
         />
       </div>
 
-      {/* Изображение справа - как фон */}
+      {/* Изображение справа — скрыто на мобильных */}
       {displaySideImage && (
-        <div className='absolute right-[20%] -bottom-20 z-0 flex items-center justify-end pointer-events-none'>
+        <div className='hidden md:flex absolute right-[20%] -bottom-20 z-0 items-center justify-end pointer-events-none'>
           <div className='relative'>
             <Image
               src={displaySideImage}
@@ -99,15 +99,15 @@ export const ProjectSection = (props: ProjectSectionProps) => {
       <div className='container relative z-30 h-full'>
         <div className='h-full flex items-center'>
           {/* Левая часть - текст и кнопки */}
-          <div className='flex flex-col justify-center text-white py-8 gap-5'>
-            <h3 className='text-2xl md:text-4xl lg:text-[42px] leading-tight'>
+          <div className='flex flex-col justify-center text-white py-10 md:py-8 gap-4 md:gap-5 max-w-full md:max-w-[55%]'>
+            <h3 className='text-2xl md:text-4xl lg:text-[42px] leading-tight font-semibold'>
               {title}
             </h3>
             {description && (
-              <p className='text-base leading-relaxed m-0'>{description}</p>
+              <p className='text-sm md:text-base leading-relaxed m-0'>{description}</p>
             )}
             {buttons && buttons.length > 0 && (
-              <div className='flex flex-col sm:flex-row gap-7'>
+              <div className='flex flex-col sm:flex-row gap-4 md:gap-7'>
                 {buttons.map((button, index) => {
                   const isExternal = button.href.startsWith('http');
                   return (

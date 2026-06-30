@@ -38,41 +38,41 @@ export const AboutCompanySection = () => {
         О компании
       </SectionHeading>
 
-      <div className='mt-6 grid grid-cols-1 lg:grid-cols-[520px_1fr] gap-4 xl:gap-6 items-start'>
+      <div className='mt-6 grid grid-cols-1 lg:grid-cols-[minmax(0,520px)_1fr] gap-4 xl:gap-6 items-start'>
         {/* Левая карточка с фото */}
-        <div className='relative overflow-hidden rounded-[32px] w-[510px] h-[640px]'>
+        <div className='relative overflow-hidden rounded-[32px] w-full h-[380px] sm:h-[500px] lg:h-[640px]'>
           <Image
             src='/main-page/company-1.jpg'
             alt='О компании'
-            width={510}
-            height={640}
+            fill
             className='object-cover'
             priority={false}
           />
 
-          <div className='absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent rounded-[32px]' />
+          <div className='absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent rounded-[32px]' />
 
-          <div className='absolute inset-x-0 bottom-0 p-4 md:p-7'>
-            <div className='max-w-[420px]'>
-              <div className='text-white font-semibold text-[22px] md:text-[24px] leading-snug'>
+          <div className='absolute inset-x-0 bottom-0 p-5 sm:p-7'>
+            <div className='max-w-full lg:max-w-[420px]'>
+              <div className='text-white font-semibold text-[17px] sm:text-[20px] md:text-[22px] leading-snug'>
                 Основа надёжного строительства
               </div>
-              <div className='mt-6 text-white/85 text-base leading-relaxed'>
+
+              <div className='hidden sm:block mt-4 text-white/85 text-sm md:text-base leading-relaxed'>
                 В строительной сфере я более 15 лет и с первого дня ставлю во главу угла качество, надёжность и долгосрочные отношения. Я верю, что современное строительство — это не просто материалы, а ответственность перед людьми и будущим
               </div>
 
-              <div className='mt-6'>
+              <div className='hidden sm:block mt-5'>
                 <Image
                   src='/main-page/company_sing.png'
                   alt='Подпись'
                   width={140}
                   height={70}
-                  className='h-auto w-[120px] md:w-[140px]'
+                  className='h-auto w-[110px] md:w-[140px]'
                 />
               </div>
 
-              <div className='mt-4 text-white/90 text-base'>
-                Айбек Нурбеков - генеральный директор
+              <div className='mt-3 text-white/90 text-sm md:text-base'>
+                Айбек Нурбеков — генеральный директор
               </div>
             </div>
           </div>
@@ -108,11 +108,11 @@ export const AboutCompanySection = () => {
                 key={card.title}
                 className='relative overflow-hidden rounded-[32px] bg-[#F7FAFF] px-6 py-7 md:px-7 md:py-8 min-h-[200px]'
               >
-                <div className='relative flex flex-col justify-between h-full z-10'>
-                  <div className='text-[#015BFF] font-semibold text-[22px] md:text-[24px] leading-tight whitespace-pre-line max-w-[300px]'>
+                <div className='relative flex flex-col gap-3 z-10 pr-[88px] md:pr-[100px] lg:pr-[105px]'>
+                  <div className='text-[#015BFF] font-semibold text-[20px] md:text-[24px] leading-tight'>
                     {card.title}
                   </div>
-                  <div className='text-black text-base leading-relaxed whitespace-pre-line max-w-[300px]'>
+                  <div className='text-black text-sm md:text-base leading-relaxed'>
                     {card.description}
                   </div>
                 </div>
@@ -122,7 +122,7 @@ export const AboutCompanySection = () => {
                   alt=''
                   width={190}
                   height={190}
-                  className='pointer-events-none select-none absolute -right-0 top-[57%] -translate-y-1/2 opacity-90'
+                  className='pointer-events-none select-none absolute right-0 bottom-4 opacity-90 w-[80px] h-[80px] md:w-[110px] md:h-[110px] lg:w-[150px] lg:h-[150px]'
                 />
               </div>
             ))}
