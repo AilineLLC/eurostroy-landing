@@ -1,8 +1,6 @@
 import Link from "next/link";
-import { Input } from "@/app/components/ui/input";
-import { Button } from "@/app/components/ui/button";
-import { ArrowRight} from "lucide-react";
 import Image from "next/image";
+import { SubscribeForm } from "@/app/components/SubscribeForm";
 
  function Footer() {
     return (
@@ -50,21 +48,7 @@ import Image from "next/image";
                 </div>
 
                 <div className='md:col-span-5 md:col-start-10'>
-                    <div className="space-y-1">
-                        <h3 className="text-xl">Подпишитесь на нашу рассылку</h3>
-                        <div className="flex gap-2 relative">
-                            <Input
-                                placeholder="Введите email"
-                                className="flex-1 p-[20px] h-[60px] rounded-[15px] bg-white text-black"
-                            />
-                            <Button
-                                variant="default"
-                                className='absolute right-0 rounded-[15px] w-[60px] h-[60px]'
-                            >
-                                <ArrowRight/>
-                            </Button>
-                        </div>
-                    </div>
+                    <SubscribeForm />
                 </div>
             </div>
 

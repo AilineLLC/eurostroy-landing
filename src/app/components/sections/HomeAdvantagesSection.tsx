@@ -80,7 +80,7 @@ export const HomeAdvantagesSection = () => {
           <div
             className={`relative overflow-hidden rounded-[32px] ${advantages[1].bgColor} p-6 md:p-8 min-h-[240px] flex-1 flex flex-col`}
           >
-            <div className={`relative z-10 pr-[110px] md:pr-[140px] lg:pr-0 ${advantages[1].textColor}`}>
+            <div className={`relative z-10 pr-[110px] md:pr-[160px] ${advantages[1].textColor}`}>
               <h3 className='text-xl md:text-2xl leading-tight mb-3 font-semibold'>
                 {advantages[1].title}
               </h3>
@@ -105,7 +105,7 @@ export const HomeAdvantagesSection = () => {
           <div
             className={`relative overflow-hidden rounded-[32px] ${advantages[2].bgColor} p-6 md:p-8 min-h-[240px] flex-1 flex flex-col`}
           >
-            <div className={`relative z-10 pr-[110px] md:pr-[140px] lg:pr-0 ${advantages[2].textColor}`}>
+            <div className={`relative z-10 pr-[110px] md:pr-[160px] ${advantages[2].textColor}`}>
               <h3 className='text-xl md:text-2xl leading-tight mb-3 font-semibold'>
                 {advantages[2].title}
               </h3>

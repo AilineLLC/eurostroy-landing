@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/app/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+import { ReactNode } from "react";
 
 export type CategoryCardSize = 'small' | 'medium' | 'large';
 
@@ -9,9 +10,10 @@ interface CategoryCardProps {
     imageUrl: string;
     href: string;
     size?: CategoryCardSize;
+    icon?: ReactNode;
 }
 
-export function CardGrid({ title, imageUrl, href, size = 'small' }: CategoryCardProps) {
+export function CardGrid({ title, imageUrl, href, size = 'small', icon }: CategoryCardProps) {
     const imageSizeClass = {
         small: 'h-40 w-40 lg:h-60 lg:w-60',
         medium: 'h-48 w-48 lg:h-80 lg:w-80 -bottom-10 right-2',
@@ -34,7 +36,11 @@ export function CardGrid({ title, imageUrl, href, size = 'small' }: CategoryCard
         <Link href={href} className="group block h-full w-full">
             <Card className="h-full w-full relative flex flex-col bg-[#E6EFFF] transition-all hover:shadow-lg overflow-hidden rounded-4xl border-none shadow-none">
                 <CardContent className="flex flex-col h-full p-4 pb-2">
-
+                    {icon && (
+                        <div className="absolute top-[15px] left-[15px] text-blue-500 flex items-center justify-center rounded-full bg-white w-9 h-9 md:w-[50px] md:h-[50px] shrink-0 [&>svg]:w-4 [&>svg]:h-4 md:[&>svg]:w-[22px] md:[&>svg]:h-[24px]">
+                            {icon}
+                        </div>
+                    )}
                     <div className="mt-auto flex justify-between items-end">
                         <div className={`absolute -bottom-10 -right-8 overflow-hidden ${imageSizeClass}`}>
                             <Image

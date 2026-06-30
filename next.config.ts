@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'api.concrete.internal',
+                pathname: '/Uploads/**',
+            },
+        ],
+    },
     async rewrites() {
         return [
             {

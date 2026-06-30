@@ -40,13 +40,16 @@ const StarRating = ({ rating }: { rating: number }) => (
   </div>
 );
 
+const getImageUrl = (path: string | null | undefined) =>
+  path ? `http://api.concrete.internal/Uploads/${path}` : null;
+
 const ProductCard = ({ product }: { product: Product }) => (
-  <div className='rounded-2xl bg-white flex flex-col h-full min-h-[320px] overflow-hidden'>
+  <div className='rounded-2xl bg-[#F8F8F8] flex flex-col h-full min-h-[320px] overflow-hidden py-[10px]'>
     {/* Image area */}
     <div className='relative h-[190px] w-full flex items-center justify-center p-4'>
-      {product.image?.path ? (
+      {getImageUrl(product.image?.path) ? (
         <Image
-          src={product.image.path}
+          src={getImageUrl(product.image?.path)!}
           alt={product.name}
           fill
           className='object-contain p-4'
@@ -69,20 +72,6 @@ const ProductCard = ({ product }: { product: Product }) => (
         </h3>
         {product.rating != null && <StarRating rating={product.rating} />}
       </div>
-
-      {/* Category */}
-      {product.category?.name && (
-        <p className='text-[#9A9A9A] text-[13px] leading-none'>
-          {product.category.name}
-        </p>
-      )}
-
-      {/* Description */}
-      {product.description && (
-        <p className='text-[#9A9A9A] text-[12px] leading-relaxed line-clamp-3 mt-1'>
-          {product.description}
-        </p>
-      )}
 
       {/* Button */}
       <div className='mt-auto'>

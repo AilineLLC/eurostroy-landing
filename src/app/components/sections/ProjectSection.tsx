@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { type ReactNode } from 'react';
 
 import { Button } from '@/app/components/ui/button';
 import { SHOP_URL } from '@/app/lib/constants/shop';
@@ -21,6 +22,7 @@ type ProjectSectionProps = {
   className?: string;
   fullWidth?: boolean;
   height?: number;
+  children?: ReactNode;
 };
 
 const defaultProps: Required<Omit<ProjectSectionProps, 'className' | 'fullWidth' | 'height'>> = {
@@ -58,6 +60,7 @@ export const ProjectSection = (props: ProjectSectionProps) => {
     className = '',
     fullWidth = false,
     height = 420,
+    children,
   } = props;
 
   // Если sideImage явно передан в props (включая null), используем его, иначе значение по умолчанию
@@ -106,7 +109,7 @@ export const ProjectSection = (props: ProjectSectionProps) => {
             {description && (
               <p className='text-sm md:text-base leading-relaxed m-0'>{description}</p>
             )}
-            {buttons && buttons.length > 0 && (
+            {children ? children : (buttons && buttons.length > 0 && (
               <div className='flex flex-col sm:flex-row gap-4 md:gap-7'>
                 {buttons.map((button, index) => {
                   const isExternal = button.href.startsWith('http');
@@ -129,7 +132,7 @@ export const ProjectSection = (props: ProjectSectionProps) => {
                   );
                 })}
               </div>
-            )}
+            ))}
           </div>
         </div>
       </div>
