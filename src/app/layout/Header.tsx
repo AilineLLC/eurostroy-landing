@@ -47,21 +47,27 @@ function Header() {
               {/* Навигационные ссылки — только md+ */}
               <nav className='hidden md:flex items-center gap-6'>
                 <Link
-                  href='/discount'
+                  href='https://shop.eurogips.kg/discount'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-900 hover:text-[#015BFF] transition-colors'
                 >
                   <Image src='/main-page/discount-shape.svg' alt='Акции' width={20} height={20} className='w-5 h-5' />
                   <span className='text-sm font-medium'>Акции</span>
                 </Link>
                 <Link
-                  href='/delivery'
+                  href='https://shop.eurogips.kg/address'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-900 hover:text-[#015BFF] transition-colors'
                 >
                   <Image src='/main-page/truck-fast.svg' alt='Доставка' width={20} height={20} className='w-5 h-5' />
                   <span className='text-sm font-medium'>Доставка</span>
                 </Link>
                 <Link
-                  href='/payment'
+                  href='https://shop.eurogips.kg/payment'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='flex items-center gap-2 text-gray-900 hover:text-[#015BFF] transition-colors'
                 >
                   <Image src='/main-page/empty-wallet.svg' alt='Оплата' width={20} height={20} className='w-5 h-5' />
@@ -108,7 +114,9 @@ function Header() {
         {isMenuOpen && (
           <div className='md:hidden mt-2 bg-gray-50 rounded-2xl px-6 py-4 space-y-1'>
             <Link
-              href='/discount'
+              href='https://shop.eurogips.kg/discount'
+              target='_blank'
+              rel='noopener noreferrer'
               className='flex items-center gap-3 text-gray-900 hover:text-[#015BFF] transition-colors py-3 border-b border-gray-100'
               onClick={() => setIsMenuOpen(false)}
             >
@@ -116,7 +124,9 @@ function Header() {
               <span className='text-base font-medium'>Акции</span>
             </Link>
             <Link
-              href='/delivery'
+              href='https://shop.eurogips.kg/address'
+              target='_blank'
+              rel='noopener noreferrer'
               className='flex items-center gap-3 text-gray-900 hover:text-[#015BFF] transition-colors py-3 border-b border-gray-100'
               onClick={() => setIsMenuOpen(false)}
             >
@@ -124,7 +134,9 @@ function Header() {
               <span className='text-base font-medium'>Доставка</span>
             </Link>
             <Link
-              href='/payment'
+              href='https://shop.eurogips.kg/payment'
+              target='_blank'
+              rel='noopener noreferrer'
               className='flex items-center gap-3 text-gray-900 hover:text-[#015BFF] transition-colors py-3 border-b border-gray-100'
               onClick={() => setIsMenuOpen(false)}
             >

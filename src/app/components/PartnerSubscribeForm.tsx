@@ -17,7 +17,7 @@ export function PartnerSubscribeForm() {
       const res = await fetch('/api/Marketing/EmailSubscription/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(email),
       });
       if (!res.ok) throw new Error(`status ${res.status}`);
       setStatus('success');

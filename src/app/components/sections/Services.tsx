@@ -21,7 +21,7 @@ const services = [
         icon: <BookOpen size={22} strokeWidth={1.5} />,
     },
     {
-        title: 'Калькулятор расхода материалов',
+        title: 'Центр сертификатов',
         image: '/calc-grid.png',
         size: 'medium' as const,
         icon: <Calculator size={22} strokeWidth={1.5} />,

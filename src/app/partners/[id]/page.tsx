@@ -76,7 +76,7 @@ export default async function PartnerPage({ params }: PageProps) {
               <img
                 src={partner.logo}
                 alt={partner.title}
-                className='h-8 md:h-14 w-auto object-contain'
+                className={partner.logoLarge ? 'h-11 md:h-18 w-auto object-contain' : 'h-8 md:h-14 w-auto object-contain'}
                 style={{ filter: 'brightness(0) invert(1)' }}
               />
             </div>
@@ -182,7 +182,7 @@ export default async function PartnerPage({ params }: PageProps) {
                 <img
                   src={partner.logo}
                   alt={partner.title}
-                  className='h-8 md:h-10 w-auto max-w-[200px] object-contain mb-6'
+                  className={partner.logoLarge ? 'h-11 md:h-14 w-auto max-w-[240px] object-contain mb-6' : 'h-8 md:h-10 w-auto max-w-[200px] object-contain mb-6'}
                   style={{ filter: 'brightness(0) invert(1)' }}
                 />
 

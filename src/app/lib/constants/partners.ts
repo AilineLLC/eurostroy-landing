@@ -4,6 +4,7 @@ export type Partner = {
   description: string;
   fullDescription: string;
   logo: string;
+  logoLarge?: boolean;
   image: string;
   website?: string;
   phone?: string;
@@ -61,7 +62,8 @@ export const partnersData: Record<string, Partner> = {
     fullDescription:
       'STINERGY специализируется на производстве высокоэффективных теплоизоляционных материалов и энергосберегающих решений. Продукция компании применяется при утеплении фасадов, кровли и инженерных систем жилых, коммерческих и промышленных зданий. Материалы STINERGY соответствуют современным требованиям по энергоэффективности и экологической безопасности.',
     logo: '/main-page/stinergy.png',
-    image: '/main-page/stinergy.png',
+    logoLarge: true,
+    image: '/main-page/stinergy-card.png',
     website: 'https://stinergy.com',
     phone: '+996 700 700 700',
     email: 'info@stinergy.kg',
@@ -97,7 +99,8 @@ export const partnersData: Record<string, Partner> = {
     fullDescription:
       'Saint-Gobain — французская многонациональная корпорация, один из крупнейших производителей строительных и высокотехнологичных материалов в мире. Компания выпускает продукцию для устойчивого строительства: стеклопакеты, гипсовые плиты, теплоизоляцию, фасадные системы и трубопроводные решения. Более 350 лет опыта в создании материалов, улучшающих качество жизни.',
     logo: '/main-page/saint-gobain.png',
-    image: '/main-page/saint-gobain.png',
+    logoLarge: true,
+    image: '/main-page/saint-gobain-card.png',
     website: 'https://saint-gobain.com',
     phone: '+996 700 700 700',
     email: 'info@saint-gobain.kg',

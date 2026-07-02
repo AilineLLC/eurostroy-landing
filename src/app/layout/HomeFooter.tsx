@@ -12,8 +12,8 @@ const eurogipsElements = [
   { name: 'Сертификаты', href: '/certificates' },
   { name: 'Документы', href: '/documents' },
   { name: 'Поддержка', href: '/support' },
-  { name: 'Доставка', href: '/address' },
-  { name: 'Оплата', href: '/payment' },
+  { name: 'Доставка', href: 'https://shop.eurogips.kg/address' },
+  { name: 'Оплата', href: 'https://shop.eurogips.kg/payment' },
   { name: 'Контакты', href: '/contacts' },
 ];
 
@@ -57,7 +57,7 @@ export const HomeFooter = () => (
           <div className='grid grid-cols-2 gap-8'>
             <ul className='space-y-3 text-sm'>
               <li>
-                <Link href='/home' className='hover:underline'>
+                <Link href='/' className='hover:underline'>
                   Главная
                 </Link>
               </li>
@@ -67,7 +67,7 @@ export const HomeFooter = () => (
                 </Link>
               </li>
               <li>
-                <Link href='/activity' className='hover:underline whitespace-nowrap'>
+                <Link href='/#activity' className='hover:underline whitespace-nowrap'>
                   Основные деятельности
                 </Link>
               </li>

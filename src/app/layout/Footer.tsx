@@ -25,10 +25,15 @@ import { SubscribeForm } from "@/app/components/SubscribeForm";
                 <div className="md:col-span-2 md:col-start-5">
                     <h2 className="font-semibold text-lg mb-4">Карта сайта</h2>
                     <ul className="space-y-2 text-sm">
-                        {['Главная', 'О компании', 'Основные деятельности', 'Приемущества'].map((item) => (
-                            <li key={item}>
-                                <Link href="#" className="hover:underline">
-                                    {item}
+                        {[
+                            { label: 'Главная', href: '/' },
+                            { label: 'О компании', href: '/#about' },
+                            { label: 'Основные деятельности', href: '/#activity' },
+                            { label: 'Приемущества', href: '/#advantages' },
+                        ].map((item) => (
+                            <li key={item.label}>
+                                <Link href={item.href} className="hover:underline">
+                                    {item.label}
                                 </Link>
                             </li>
                         ))}
@@ -37,10 +42,15 @@ import { SubscribeForm } from "@/app/components/SubscribeForm";
 
                 <div className="md:col-span-2 md:col-start-7">
                     <ul className="space-y-2 text-sm">
-                        {['География и партнеры', 'Отзывы', 'Сервисы', 'Достижения'].map((item) => (
-                            <li key={item}>
-                                <Link href="#" className="hover:underline">
-                                    {item}
+                        {[
+                            { label: 'География и партнеры', href: '/#geography' },
+                            { label: 'Отзывы', href: '/#reviews' },
+                            { label: 'Сервисы', href: '/#services' },
+                            { label: 'Достижения', href: '/#achievements' },
+                        ].map((item) => (
+                            <li key={item.label}>
+                                <Link href={item.href} className="hover:underline">
+                                    {item.label}
                                 </Link>
                             </li>
                         ))}

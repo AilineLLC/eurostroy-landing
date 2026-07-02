@@ -8,7 +8,6 @@ import { PartnersCarouselSection } from "@/app/components/sections/PartnersCarou
 import { BrandsMarqueeSection } from "@/app/components/sections/BrandsMarqueeSection";
 import InfoSection from "@/app/components/sections/InfoSection";
 import { OnlineStoreSection } from "@/app/components/sections/OnlineStoreSection";
-import { BestChooseUsSection } from "@/app/components/sections/BestChooseUsSection";
 import { ReviewsSection } from "@/app/components/sections/ReviewsSection";
 import { HomeFooter } from "@/app/layout/HomeFooter";
 import Services from "@/app/components/sections/Services";
@@ -22,18 +21,17 @@ export default function Home() {
         <section className='container'>
           <HomeHeroCarousel />
         </section>
-        <AboutCompanySection/>
-        <ActivityDirectionsSection/>
-        <HomeAdvantagesSection/>
-        <GeographyPartnersSection/>
+        <div id="about"><AboutCompanySection/></div>
+        <div id="activity"><ActivityDirectionsSection/></div>
+        <div id="advantages"><HomeAdvantagesSection/></div>
+        <div id="geography"><GeographyPartnersSection/></div>
         <BrandsMarqueeSection/>
         <PartnersCarouselSection/>
         {/* <InfoSection/> */}
         <OnlineStoreSection/>
-        <BestChooseUsSection/>
-        <ReviewsSection/>
-        <Services/>
-        <AchievementsSection/>
+        <div id="reviews"><ReviewsSection/></div>
+        <div id="services"><Services/></div>
+        <div id="achievements"><AchievementsSection/></div>
         <ProjectSection/>
         <HomeFooter/>
     </div>
