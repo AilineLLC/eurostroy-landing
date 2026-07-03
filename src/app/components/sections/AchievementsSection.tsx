@@ -12,21 +12,19 @@ import {
   CarouselPrevious,
 } from '@/app/components/ui/carousel';
 import { SectionHeading } from '@/app/components/ui/section-heading';
+import { useCertificates } from '@/app/lib/api/hooks/useCertificates';
 import { cn } from '@/app/lib/utils';
 
 import CheckIcon from '@/app/assets/icons/Vector.svg';
+import { FileText } from 'lucide-react';
 
-type Slide = {
-  id: string;
-  imageSrc: string;
-  imageAlt: string;
-};
+const IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'webp', 'gif', 'svg'];
 
-const slides: Slide[] = Array.from({ length: 9 }, (_, index) => ({
-  id: `certificate-${index + 1}`,
-  imageSrc: '/main-page/certificate.jpg',
-  imageAlt: 'Сертификат',
-}));
+const isImageExtension = (extension: string) =>
+  IMAGE_EXTENSIONS.includes(extension.toLowerCase().replace('.', ''));
+
+const getCertificateFileUrl = (path: string) =>
+  `http://api.concrete.internal/Uploads/${path}`;
 
 const Bullet = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -70,7 +68,10 @@ const InfoCard = ({
 export const AchievementsSection = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(slides.length);
+  const [count, setCount] = React.useState(0);
+  const { data, isLoading, isError } = useCertificates();
+  const certificates = data?.data ?? [];
+  const activeCertificate = certificates[current];
 
   React.useEffect(() => {
     if (!api) return;
@@ -98,13 +99,17 @@ export const AchievementsSection = () => {
           <div className='space-y-6'>
             <div className='mb-10'>
               <div className='text-black text-xl leading-tight'>
-                Экологичные материалы
+                {activeCertificate?.title ?? 'Экологичные материалы'}
               </div>
               <p className='mt-4 text-black text-base leading-relaxed max-w-[520px]'>
-                Мы предлагаем строительные решения, безопасные для человека и
-                окружающей среды. Все материалы проходят проверку на соответствие
-                экологическим стандартам и не содержат вредных примесей. Строить
-                можно не только качественно, но и с заботой о будущем.
+                {activeCertificate?.description ?? (
+                  <>
+                    Мы предлагаем строительные решения, безопасные для человека и
+                    окружающей среды. Все материалы проходят проверку на соответствие
+                    экологическим стандартам и не содержат вредных примесей. Строить
+                    можно не только качественно, но и с заботой о будущем.
+                  </>
+                )}
               </p>
             </div>
 
@@ -138,78 +143,104 @@ export const AchievementsSection = () => {
 
         {/* Центр: сертификат (карусель) */}
         <div className='relative flex items-center justify-center'>
-          <Carousel
-            setApi={setApi}
-            className='w-full'
-            opts={{
-              loop: true,
-              align: 'center',
-            }}
-          >
-            <div className='flex items-center justify-center'>
-              <CarouselPrevious
-                variant='ghost'
-                className={cn(
-                  'bg-white text-black hover:bg-white/90 shadow-md border-0 rounded-full z-20 w-15 h-15',
-                  'relative left-auto right-auto translate-x-0 translate-y-0 flex-shrink-0'
-                )}
-                size='icon'
-                iconClassName='!w-7 !h-7'
-              />
-              <div className='flex-1 min-w-0 mx-2 md:mx-4'>
-                <div className='rounded-[32px] bg-brand-secondary p-4 md:p-6 lg:p-8'>
-                  <CarouselContent className='-ml-4'>
-                    {slides.map((slide, index) => (
-                      <CarouselItem key={slide.id} className='pl-4'>
-                        <div className='relative mx-auto w-full'>
-                          <div className='rounded-[28px] bg-white p-3 md:p-5'>
-                            <div className='relative h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] w-full overflow-hidden rounded-[22px]'>
-                              <Image
-                                src={slide.imageSrc}
-                                alt={slide.imageAlt}
-                                fill
-                                className='object-cover'
-                                sizes='510px'
-                                priority={index === 0}
-                              />
+          {isLoading && (
+            <div className='w-full h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] rounded-[32px] bg-brand-secondary animate-pulse' />
+          )}
+
+          {!isLoading && (isError || certificates.length === 0) && (
+            <div className='w-full rounded-[32px] bg-brand-secondary p-8 text-center text-black/70'>
+              Не удалось загрузить сертификаты.
+            </div>
+          )}
+
+          {!isLoading && !isError && certificates.length > 0 && (
+            <Carousel
+              setApi={setApi}
+              className='w-full'
+              opts={{
+                loop: true,
+                align: 'center',
+              }}
+            >
+              <div className='flex items-center justify-center'>
+                <CarouselPrevious
+                  variant='ghost'
+                  className={cn(
+                    'bg-white text-black hover:bg-white/90 shadow-md border-0 rounded-full z-20 w-15 h-15',
+                    'relative left-auto right-auto translate-x-0 translate-y-0 flex-shrink-0'
+                  )}
+                  size='icon'
+                  iconClassName='!w-7 !h-7'
+                />
+                <div className='flex-1 min-w-0 mx-2 md:mx-4'>
+                  <div className='rounded-[32px] bg-brand-secondary p-4 md:p-6 lg:p-8'>
+                    <CarouselContent className='-ml-4'>
+                      {certificates.map((certificate, index) => (
+                        <CarouselItem key={certificate.id} className='pl-4'>
+                          <div className='relative mx-auto w-full'>
+                            <div className='rounded-[28px] bg-white p-3 md:p-5'>
+                              <div className='relative h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] w-full overflow-hidden rounded-[22px]'>
+                                {isImageExtension(certificate.file.extension) ? (
+                                  <Image
+                                    src={getCertificateFileUrl(certificate.file.path)}
+                                    alt={certificate.title}
+                                    fill
+                                    className='object-cover'
+                                    sizes='510px'
+                                    priority={index === 0}
+                                  />
+                                ) : (
+                                  <a
+                                    href={getCertificateFileUrl(certificate.file.path)}
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    className='flex h-full w-full flex-col items-center justify-center gap-4 p-8 text-center'
+                                  >
+                                    <FileText className='h-16 w-16 text-[#015BFF]' />
+                                    <span className='font-medium text-black'>
+                                      {certificate.title}
+                                    </span>
+                                  </a>
+                                )}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
 
-                  {/* Точки */}
-                  <div className='mt-6 flex items-center justify-center gap-2'>
-                    {Array.from({ length: count }).map((_, idx) => {
-                      const isActive = idx === current;
-                      return (
-                        <button
-                          key={`dot-${idx}`}
-                          type='button'
-                          aria-label={`Перейти к слайду ${idx + 1}`}
-                          className={cn(
-                            'h-[10px] w-[10px] rounded-full transition-colors',
-                            isActive ? 'bg-[#015BFF]' : 'bg-white/70 hover:bg-white'
-                          )}
-                          onClick={() => api?.scrollTo(idx)}
-                        />
-                      );
-                    })}
+                    {/* Точки */}
+                    <div className='mt-6 flex items-center justify-center gap-2'>
+                      {Array.from({ length: count }).map((_, idx) => {
+                        const isActive = idx === current;
+                        return (
+                          <button
+                            key={`dot-${idx}`}
+                            type='button'
+                            aria-label={`Перейти к слайду ${idx + 1}`}
+                            className={cn(
+                              'h-[10px] w-[10px] rounded-full transition-colors',
+                              isActive ? 'bg-[#015BFF]' : 'bg-white/70 hover:bg-white'
+                            )}
+                            onClick={() => api?.scrollTo(idx)}
+                          />
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
+                <CarouselNext
+                  variant='ghost'
+                  className={cn(
+                    'bg-white text-black hover:bg-white/90 shadow-md border-0 rounded-full z-20 w-15 h-15',
+                    'relative left-auto right-auto translate-x-0 translate-y-0 flex-shrink-0'
+                  )}
+                  size='icon'
+                  iconClassName='!w-7 !h-7'
+                />
               </div>
-              <CarouselNext
-                variant='ghost'
-                className={cn(
-                  'bg-white text-black hover:bg-white/90 shadow-md border-0 rounded-full z-20 w-15 h-15',
-                  'relative left-auto right-auto translate-x-0 translate-y-0 flex-shrink-0'
-                )}
-                size='icon'
-                iconClassName='!w-7 !h-7'
-              />
-            </div>
-          </Carousel>
+            </Carousel>
+          )}
         </div>
 
         {/* Правая колонка */}

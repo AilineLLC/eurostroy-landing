@@ -66,9 +66,9 @@ export const HomeAdvantagesSection = () => {
             <Image
               src={advantages[0].imageSrc}
               alt={advantages[0].imageAlt}
-              width={250}
-              height={250}
-              className='object-contain w-full h-full'
+              fill
+              sizes='(max-width: 768px) 90vw, 735px'
+              className='object-contain'
               priority={false}
             />
           </div>
