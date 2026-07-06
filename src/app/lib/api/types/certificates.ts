@@ -1,10 +1,4 @@
-export type CertificateProduct = {
-  id: string;
-  name: string;
-  article: string | null;
-};
-
-export type CertificateFile = {
+export type CertificateSliderImage = {
   id: string;
   name: string | null;
   extension: string;
@@ -13,25 +7,12 @@ export type CertificateFile = {
   path: string;
 };
 
-export type CertificateFactory = {
+export type CertificateSliderItem = {
   id: string;
-  name: string;
-};
-
-export type Certificate = {
-  id: string;
-  title: string;
-  description: string | null;
-  product: CertificateProduct;
-  file: CertificateFile;
-  factory: CertificateFactory;
-  createdAt: string;
-};
-
-export type CertificatesResponse = {
-  data: Certificate[];
-  totalCount: number;
-  pageSize: number;
-  hasPrevious: boolean;
-  hasNext: boolean;
+  type: string;
+  ordinal: number;
+  link: string | null;
+  customData: string | Record<string, unknown> | null;
+  uiSaleId: string | null;
+  image: CertificateSliderImage;
 };

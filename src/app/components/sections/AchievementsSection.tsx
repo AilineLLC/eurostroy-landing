@@ -26,6 +26,23 @@ const isImageExtension = (extension: string) =>
 const getCertificateFileUrl = (path: string) =>
   `http://api.concrete.internal/Uploads/${path}`;
 
+type CertificateCustomData = {
+  title?: string;
+  description?: string;
+};
+
+const parseCustomData = (
+  customData: string | Record<string, unknown> | null
+): CertificateCustomData | null => {
+  if (!customData) return null;
+  if (typeof customData === 'object') return customData as CertificateCustomData;
+  try {
+    return JSON.parse(customData);
+  } catch {
+    return null;
+  }
+};
+
 const Bullet = ({ children }: { children: React.ReactNode }) => {
   return (
     <li className='flex items-start gap-3'>
@@ -70,8 +87,12 @@ export const AchievementsSection = () => {
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
   const { data, isLoading, isError } = useCertificates();
-  const certificates = data?.data ?? [];
+  const certificates = data ?? [];
   const activeCertificate = certificates[current];
+  const activeCustomData = React.useMemo(
+    () => parseCustomData(activeCertificate?.customData ?? null),
+    [activeCertificate]
+  );
 
   React.useEffect(() => {
     if (!api) return;
@@ -99,10 +120,10 @@ export const AchievementsSection = () => {
           <div className='space-y-6'>
             <div className='mb-10'>
               <div className='text-black text-xl leading-tight'>
-                {activeCertificate?.title ?? 'Экологичные материалы'}
+                {activeCustomData?.title ?? 'Экологичные материалы'}
               </div>
               <p className='mt-4 text-black text-base leading-relaxed max-w-[520px]'>
-                {activeCertificate?.description ?? (
+                {activeCustomData?.description ?? (
                   <>
                     Мы предлагаем строительные решения, безопасные для человека и
                     окружающей среды. Все материалы проходят проверку на соответствие
@@ -175,38 +196,44 @@ export const AchievementsSection = () => {
                 <div className='flex-1 min-w-0 mx-2 md:mx-4'>
                   <div className='rounded-[32px] bg-brand-secondary p-4 md:p-6 lg:p-8'>
                     <CarouselContent className='-ml-4'>
-                      {certificates.map((certificate, index) => (
-                        <CarouselItem key={certificate.id} className='pl-4'>
-                          <div className='relative mx-auto w-full'>
-                            <div className='rounded-[28px] bg-white p-3 md:p-5'>
-                              <div className='relative h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] w-full overflow-hidden rounded-[22px]'>
-                                {isImageExtension(certificate.file.extension) ? (
-                                  <Image
-                                    src={getCertificateFileUrl(certificate.file.path)}
-                                    alt={certificate.title}
-                                    fill
-                                    className='object-cover'
-                                    sizes='510px'
-                                    priority={index === 0}
-                                  />
-                                ) : (
-                                  <a
-                                    href={getCertificateFileUrl(certificate.file.path)}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='flex h-full w-full flex-col items-center justify-center gap-4 p-8 text-center'
-                                  >
-                                    <FileText className='h-16 w-16 text-[#015BFF]' />
-                                    <span className='font-medium text-black'>
-                                      {certificate.title}
-                                    </span>
-                                  </a>
-                                )}
+                      {certificates.map((certificate, index) => {
+                        const certificateTitle =
+                          parseCustomData(certificate.customData)?.title ??
+                          `Сертификат ${index + 1}`;
+
+                        return (
+                          <CarouselItem key={certificate.id} className='pl-4'>
+                            <div className='relative mx-auto w-full'>
+                              <div className='rounded-[28px] bg-white p-3 md:p-5'>
+                                <div className='relative h-[280px] sm:h-[380px] md:h-[520px] lg:h-[610px] w-full overflow-hidden rounded-[22px]'>
+                                  {isImageExtension(certificate.image.extension) ? (
+                                    <Image
+                                      src={getCertificateFileUrl(certificate.image.path)}
+                                      alt={certificateTitle}
+                                      fill
+                                      className='object-cover'
+                                      sizes='510px'
+                                      priority={index === 0}
+                                    />
+                                  ) : (
+                                    <a
+                                      href={getCertificateFileUrl(certificate.image.path)}
+                                      target='_blank'
+                                      rel='noopener noreferrer'
+                                      className='flex h-full w-full flex-col items-center justify-center gap-4 p-8 text-center'
+                                    >
+                                      <FileText className='h-16 w-16 text-[#015BFF]' />
+                                      <span className='font-medium text-black'>
+                                        {certificateTitle}
+                                      </span>
+                                    </a>
+                                  )}
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </CarouselItem>
-                      ))}
+                          </CarouselItem>
+                        );
+                      })}
                     </CarouselContent>
 
                     {/* Точки */}
