@@ -180,8 +180,12 @@ const CarouselPrevious = ({
   variant = 'outline',
   size = 'icon',
   iconClassName,
+  icon,
   ...props
-}: React.ComponentProps<typeof Button> & { iconClassName?: string }) => {
+}: React.ComponentProps<typeof Button> & {
+  iconClassName?: string;
+  icon?: React.ReactNode;
+}) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -200,7 +204,7 @@ const CarouselPrevious = ({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeftIcon className={iconClassName} />
+      {icon ?? <ArrowLeftIcon className={iconClassName} />}
       <span className='sr-only'>Previous slide</span>
     </Button>
   );
@@ -211,8 +215,12 @@ const CarouselNext = ({
   variant = 'outline',
   size = 'icon',
   iconClassName,
+  icon,
   ...props
-}: React.ComponentProps<typeof Button> & { iconClassName?: string }) => {
+}: React.ComponentProps<typeof Button> & {
+  iconClassName?: string;
+  icon?: React.ReactNode;
+}) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -231,7 +239,7 @@ const CarouselNext = ({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRightIcon className={iconClassName} />
+      {icon ?? <ArrowRightIcon className={iconClassName} />}
       <span className='sr-only'>Next slide</span>
     </Button>
   );

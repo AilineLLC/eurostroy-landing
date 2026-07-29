@@ -2,12 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     allowedDevOrigins: ['concrete.internal'],
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-    typescript: {
-        ignoreBuildErrors: true,
-    },
     images: {
         remotePatterns: [
             {

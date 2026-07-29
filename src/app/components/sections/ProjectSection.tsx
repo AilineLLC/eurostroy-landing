@@ -25,7 +25,7 @@ type ProjectSectionProps = {
   children?: ReactNode;
 };
 
-const defaultProps: Required<Omit<ProjectSectionProps, 'className' | 'fullWidth' | 'height'>> = {
+const defaultProps: Required<Omit<ProjectSectionProps, 'className' | 'fullWidth' | 'height' | 'children'>> = {
   title: 'Начните ваш проект вместе с нами',
   description:
     'Оставьте заявку — поможем с выбором материалов, рассчитаем объёмы и предложим оптимальные решения под ваш бюджет и сроки',

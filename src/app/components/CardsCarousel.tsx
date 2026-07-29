@@ -1,7 +1,7 @@
 import {Carousel, CarouselContent, CarouselNext, CarouselPrevious} from "@/app/components/ui/carousel";
 
 interface CardsCarouselProps {
-    cards: any[]
+    cards: unknown[]
 }
 
 

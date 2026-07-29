@@ -1,5 +1,6 @@
 'use client';
 
+import type L from 'leaflet';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
@@ -72,12 +73,12 @@ const partnerPoints: PartnerPoint[] = [
 
 // Компонент маркера с попапом
 const PartnerMarker = ({ point }: { point: PartnerPoint }) => {
-  const [leafletIcon, setLeafletIcon] = useState<any>(null);
+  const [leafletIcon, setLeafletIcon] = useState<L.DivIcon | null>(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const L = require('leaflet');
+    let isMounted = true;
 
+    import('leaflet').then((L) => {
       const icon = L.divIcon({
         html: `
           <div style="
@@ -99,8 +100,14 @@ const PartnerMarker = ({ point }: { point: PartnerPoint }) => {
         iconAnchor: [10, 10],
       });
 
-      setLeafletIcon(icon);
-    }
+      if (isMounted) {
+        setLeafletIcon(icon);
+      }
+    });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   if (!leafletIcon) {
