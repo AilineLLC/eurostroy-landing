@@ -24,7 +24,7 @@ const isImageExtension = (extension: string) =>
   IMAGE_EXTENSIONS.includes(extension.toLowerCase().replace('.', ''));
 
 const getCertificateFileUrl = (path: string) =>
-  `http://api.concrete.internal/Uploads/${path}`;
+  `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ''}/Uploads/${path}`;
 
 type CertificateCustomData = {
   title?: string;
