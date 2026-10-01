@@ -8,7 +8,9 @@ import { SubscribeForm } from "@/app/components/SubscribeForm";
             <div className="max-w-[1590px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
                 <div className="space-y-2 md:col-span-3">
                     <div>
-                        <Image src={'/logo.JPG'} alt={'logo'} width={300} height={300}/>
+                        <Link href='/' className='inline-flex items-center'>
+                            <Image src='/logo-accent.png' alt='LOGOGIPSUM' width={350} height={100} className='h-10 md:h-16 w-auto'/>
+                        </Link>
                     </div>
                     <p className="text-md leading-normal">
                         Покупайте строительные материалы, не выходя из дома — удобно, выгодно и с гарантией качества.
@@ -64,7 +66,7 @@ import { SubscribeForm } from "@/app/components/SubscribeForm";
 
             <div className="max-w-[1590px] mx-auto mt-12 pt-6 border-t border-gray-300 text-sm text-black">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className='mt-10 text-md'>© 2022 – 2025 Евротипс</p>
+                    <p className='mt-10 text-md'>© 2022–2026 Еврогипс</p>
                     <p className="mt-10 max-w-[780px] text-sm">
                         Продолжая использовать наш сайт, вы даете своё добровольное и ясно выраженное согласие на обработку файлов <a href="#" className='text-[#015BFF]'>Cookies</a> и других пользовательских данных, в соответствии с <a href="#" className='text-[#015BFF]'>Политикой конфиденциальности</a>.
                     </p>

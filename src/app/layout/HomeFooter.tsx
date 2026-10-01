@@ -24,13 +24,15 @@ export const HomeFooter = () => (
       <div className='max-w-[1590px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 gap-8'>
         <div className='space-y-2 md:col-span-1 lg:col-span-3'>
           <div>
-            <Image
-              className='m-0'
-              src='/main-page/logo-main.png'
-              alt='logo'
-              width={150}
-              height={40}
-            />
+            <Link href='/' className='inline-flex items-center'>
+              <Image
+                src='/logo-accent.png'
+                alt='LOGOGIPSUM'
+                width={350}
+                height={100}
+                className='h-10 md:h-16 w-auto'
+              />
+            </Link>
           </div>
           <p className='text-md leading-normal mb-[60px] max-w-[410px]'>
             Покупайте строительные материалы, не выходя из дома — удобно, выгодно
@@ -173,7 +175,7 @@ export const HomeFooter = () => (
 
       <div className='max-w-[1590px] mx-auto mt-12 pt-10 border-t border-gray-300 text-base text-black'>
         <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
-          <p className='text-normal'>© 2022-2025 Еврогипс</p>
+          <p className='text-normal'>© 2022-2026 Еврогипс</p>
           <div className='flex flex-wrap items-center gap-3 text-base'>
             <Link href='#' className='underline'>
               Пользовательское соглашение
