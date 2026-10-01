@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
                 hostname: 'api.concrete.internal',
                 pathname: '/Uploads/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'api.eurogips.kg',
+                pathname: '/Uploads/**',
+            },
         ],
     },
     async rewrites() {

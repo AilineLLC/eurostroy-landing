@@ -41,7 +41,7 @@ const StarRating = ({ rating }: { rating: number }) => (
 );
 
 const getImageUrl = (path: string | null | undefined) =>
-  path ? `http://api.concrete.internal/Uploads/${path}` : null;
+  path ? `${process.env.NEXT_PUBLIC_API_BASE_URL ?? ''}/Uploads/${path}` : null;
 
 const ProductCard = ({ product }: { product: Product }) => (
   <div className='rounded-2xl bg-[#F8F8F8] flex flex-col h-full min-h-[320px] overflow-hidden py-[10px]'>
